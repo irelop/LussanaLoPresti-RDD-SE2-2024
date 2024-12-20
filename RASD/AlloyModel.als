@@ -337,18 +337,6 @@ pred BigWorld {
 	#Feedback = 1
 }
 
-pred show [m : Match] {
-	#Company = 1
-	#Student = 1
-	#Competence = 0
-	#Recommendation = 0
-	#InternshipAdv = 1
-	#Match = 1
-	#Feedback = 0
-	//MatchProgress[m]
-	MatchProgressDeclined[m]
-}
-
 //check moreThan6FeedbackPerMatch
 
 run baseWorld for 6
