@@ -1,0 +1,229 @@
+\documentclass{config/PoliMi3i_thesis}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage[utf8]{inputenc} 
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{multirow}
+\usepackage{geometry}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{wrapfig}
+\usepackage{lipsum}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{array} 
+\usepackage{enumitem} 
+\geometry{margin=1in}
+%\usepackage{adjustbox}
+%\renewcommand{\arraystretch}{1.5}
+\usepackage{longtable}
+\usepackage[table]{xcolor}
+
+\definecolor{bluepoli}{cmyk}{0.4,0.1,0,0.4}
+
+% CONFIGURATIONS
+\usepackage{parskip} % For paragraph layout
+\usepackage{setspace} % For using single or double spacing
+\usepackage{emptypage} % To insert empty pages
+\usepackage{multicol} % To write in multiple columns (executive summary)
+\setlength\columnsep{15pt} % Column separation in executive summary
+\setlength\parindent{0pt} % Indentation
+\raggedbottom 
+
+% PACKAGES FOR LANGUAGE AND FONT
+\usepackage[english]{babel} % The document is in English  
+\usepackage[utf8]{inputenc} % UTF8 encoding
+\usepackage[T1]{fontenc} % Font encoding
+\usepackage[11pt]{moresize} % Big fonts
+
+\newcommand\numfontsize{\@setfontsize\Huge{200}{60}}
+
+% PACKAGES FOR TITLES
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\fancyhf{}
+
+% \titlespacing{\section}{left spacing}{before spacing}{after spacing}
+\titlespacing{\section}{0pt}{3.3ex}{2ex}
+\titlespacing{\subsection}{0pt}{3.3ex}{1.65ex}
+\titlespacing{\subsubsection}{0pt}{3.3ex}{1ex}
+
+% PACKAGES FOR ALGORITHMS (PSEUDO-CODE)
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+% CONFIGURATIONS
+\usepackage{parskip} % For paragraph layout
+\usepackage{setspace} % For using single or double spacing
+\usepackage{emptypage} % To insert empty pages
+\usepackage{multicol} % To write in multiple columns (executive summary)
+\setlength\columnsep{15pt} % Column separation in executive summary
+\setlength{\parindent}{0pt} % Indentation
+\raggedbottom
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+
+\usepackage{times}
+
+% Title format: chapter
+\titleformat{\chapter}[hang]{
+\fontsize{50}{20}\selectfont\bfseries\filright}{\textcolor{bluepoli} \thechapter\hsp\hspace{2mm}\textcolor{bluepoli}{|  }\hsp}{0pt}{\huge\bfseries \textcolor{bluepoli}
+}
+
+% Title format: section
+\titleformat{\section}
+{\color{bluepoli}\normalfont\Large\bfseries}
+{\color{bluepoli}\thesection.}{1em}{}
+
+% Title format: subsection
+\titleformat{\subsection}
+{\color{bluepoli}\normalfont\large\bfseries}
+{\color{bluepoli}\thesubsection.}{1em}{}
+
+% Title format: subsubsection
+\titleformat{\subsubsection}
+{\color{bluepoli}\normalfont\large\bfseries}
+{\color{bluepoli}\thesubsubsection.}{1em}{}
+
+%For correctly numbering algorithms
+\numberwithin{algorithm}{chapter}
+
+% Shortening for setting no horizontal-spacing
+\newcommand{\hsp}{\hspace{0pt}}
+% TEXT SIZES:
+
+%\Huge - Largest size
+%\huge
+%\LARGE
+%\Large
+%\large
+%\normalsize - Normal/default size
+%\small
+%\footnotesize
+%\scriptsize
+%\tiny - Smallest size
+
+%code setup
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\lstdefinelanguage{Alloy}{
+    morekeywords={
+        module, open, sig, abstract, extends, fact, pred, run, check, for, all, some, lone, one, no, implies, and, or, not, set, disj, in, fun, let
+    },
+    sensitive=true,
+    morecomment=[l]{//},       % Commenti su una linea
+    morecomment=[s]{/*}{*/},  % Commenti su più linee
+    morestring=[b]",          % Stringhe fra doppi apici
+}
+\lstset{frame=tb,
+  language=Alloy,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+\begin{document}
+
+\fancypagestyle{plain}%
+\fancyhf{} % Clear all header and footer fields
+\fancyhead[RO,RE]{\thepage} %RO=right odd, RE=right even
+
+\begin{titlepage}
+
+\centering
+{\bfseries\LARGE Software Engineering 2\\ 
+\vskip0.2cm
+}
+ \large A.Y. 2024/2025
+
+
+\vskip1.5cm
+
+
+\includegraphics[width=10cm]{Images/logopoliazzurro.png}\centering
+\vskip2cm
+
+     
+\centering
+{\bfseries \Huge Students\&Companies\\
+\vskip0.5cm
+}
+\huge Requirements Analysis and Specification Document\\
+\vskip1.5cm
+\begin{minipage}[t]{0.45\textwidth} % Prima colonna per i nomi
+    \raggedleft % Allinea a destra
+        {\Large 
+            Lo Presti Irene\\ 
+            Lussana Matteo\\
+        }
+\end{minipage}%
+\hfill % Spazio vuoto tra le colonne
+\begin{minipage}[t]{0.45\textwidth} % Seconda colonna per i codici
+    \raggedright % Allinea a sinistra
+    {\Large 
+        10765687 
+        \\ 10734471 \\
+    }
+\end{minipage}
+
+\vskip2cm
+\raggedright\large{
+ Release date: 22/12/2024\\
+ Version: 1.0}
+
+
+\end{titlepage}
+
+\pagebreak
+
+\renewcommand*\contentsname{Table Of Contents}
+\tableofcontents
+%\pagenumbering{arabic}
+
+\pagebreak
+\chapter{Intro}
+\input{Chapters/Introduction}
+
+\pagebreak
+\chapter{Overall Description}
+\input{Chapters/Overall Description}
+
+\pagebreak
+\chapter{Specific Requirements}
+\input{Chapters/Specific Requirements}
+
+
+\pagebreak
+\chapter{Formal Analysis Using Alloy}
+\input{Chapters/Formal Analysis Using Alloy}
+
+\pagebreak
+\chapter{Effort Spent}
+\input{Chapters/Effort Spent}
+
+\pagebreak
+\chapter{References}
+\input{Chapters/References}
+\pagebreak
+\listoffigures
+\listoftables
+
+
+
+
+\end{document}
