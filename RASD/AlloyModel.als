@@ -52,7 +52,6 @@ sig Recommendation {}{
 }
 
 sig Match {
-	executes : one Interview,
 	var status : one MatchmakingStatus,
 	gathers : set Feedback
 }{
@@ -62,11 +61,7 @@ sig Match {
 }
 
 enum MatchmakingStatus{
-	INTERVIEW_SET, INTERVIEW_COMPLETED, INTERNSHIP_ACCEPTED, INTERNSHIP_DECLINED, INTERNSHIP_FIRST_HALF, INTERNSHIP_COMPLETED
-}
-
-sig Interview {}{
-	one m : Match | this in m.executes
+	CONTACT_CREATED, INTERVIEW_SET, INTERVIEW_COMPLETED, INTERNSHIP_ACCEPTED, INTERNSHIP_DECLINED, INTERNSHIP_FIRST_HALF, INTERNSHIP_COMPLETED
 }
 
 sig InterviewForm {}{
@@ -166,29 +161,31 @@ fact UniqueMatch{
 
 //State Machine for successful match (will lead to a internship)
 pred MatchProgress[m : Match]{
-		m.status = INTERVIEW_SET   and eventually (m.status = INTERVIEW_COMPLETED)
+	m.status = CONTACT_CREATED  and eventually (m.status = INTERVIEW_SET)
+		and always(m.status = INTERVIEW_SET implies eventually m.status = INTERVIEW_COMPLETED
 			and always(m.status = INTERVIEW_COMPLETED implies eventually m.status = INTERNSHIP_ACCEPTED
-					and always (m.status = INTERNSHIP_ACCEPTED implies eventually (m.status = INTERNSHIP_FIRST_HALF)
-						and always (m.status = INTERNSHIP_FIRST_HALF implies eventually m.status = INTERNSHIP_COMPLETED
-							and always (m.status = INTERNSHIP_COMPLETED implies always m.status = INTERNSHIP_COMPLETED)
-						)
+				and always (m.status = INTERNSHIP_ACCEPTED implies eventually (m.status = INTERNSHIP_FIRST_HALF)
+					and always (m.status = INTERNSHIP_FIRST_HALF implies eventually m.status = INTERNSHIP_COMPLETED
+						and always (m.status = INTERNSHIP_COMPLETED implies always m.status = INTERNSHIP_COMPLETED)
 					)
 				)
-		
+			)
+		)
 }
 
 //State Machine for unsuccessful match (will not lead to a internship)
 pred MatchProgressDeclined[m : Match]{
-		m.status = INTERVIEW_SET   and eventually (m.status = INTERVIEW_COMPLETED)
+	m.status = CONTACT_CREATED  and eventually (m.status = INTERVIEW_SET)
+		and always(m.status = INTERVIEW_SET implies eventually m.status = INTERVIEW_COMPLETED
 			and always(m.status = INTERVIEW_COMPLETED implies eventually m.status = INTERNSHIP_DECLINED
-					and always (m.status = INTERNSHIP_DECLINED implies always m.status = INTERNSHIP_DECLINED))
+				and always (m.status = INTERNSHIP_DECLINED implies always m.status = INTERNSHIP_DECLINED)))
 }
 
 //InterviewForm
 //An interview cannot occour without an InterviewForm
 fact NoInterviewWithoutForm {
-	all i : Interview, m : Match, adv : InternshipAdv |
-		(i in m.executes and m in adv.partecipates) implies one form : InterviewForm | form in adv.includes 
+	all m : Match, adv : InternshipAdv |
+		(m in adv.partecipates and m.status = INTERVIEW_SET) implies one form : InterviewForm | form in adv.includes 
 }
 
 //Feedback
@@ -198,7 +195,7 @@ fact UniqueFeedback {
 }
 //Feedback cannot be write in INTERVIEW_SET, INTERNSHIP_ACCEPTED or INTERNSHIP_DECLINED status
 fact ImpossibleFeedbackStatus {
-	no f : Feedback | f.status = INTERVIEW_SET or f.status = INTERNSHIP_ACCEPTED or  f.status = INTERNSHIP_DECLINED
+	no f : Feedback | f.status = CONTACT_CREATED or f.status = INTERVIEW_SET or f.status = INTERNSHIP_ACCEPTED or  f.status = INTERNSHIP_DECLINED
 }
 
 //Feedback cannot be write in status that will be reached in the future
@@ -212,7 +209,7 @@ fact NoFeedbackFutureState {
 			or m.status = INTERNSHIP_ACCEPTED 
 			or m.status = INTERNSHIP_DECLINED ) and #m.gathers > 0 ) implies all f : Feedback | f in m.gathers and f.status = INTERVIEW_COMPLETED)
 		and
-		(m.status = INTERVIEW_SET) implies m.gathers = none
+		(m.status = INTERVIEW_SET or m.status = CONTACT_CREATED) implies m.gathers = none
 }
 fact NoFeedbackFutureState2 {
 	all f : Feedback |
@@ -335,6 +332,18 @@ pred BigWorld {
 	#Recommendation = 0
 	#Match = 2
 	#Feedback = 1
+}
+
+pred show [m : Match] {
+	#Company = 1
+	#Student = 1
+	#Competence = 0
+	#Recommendation = 0
+	#InternshipAdv = 1
+	#Match = 1
+	#Feedback = 0
+	//MatchProgress[m]
+	MatchProgressDeclined[m]
 }
 
 //check moreThan6FeedbackPerMatch
