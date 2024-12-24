@@ -8,3 +8,5 @@ Requirement Analysis and Specification Document (RASD) and Design Document (DD) 
 ## Collaborative writing tools used
 - **RASD document**: [Overleaf](https://www.overleaf.com/read/cqxqcwhhykbx#bc0c9c)
 - RASD diagrams: [draw.io](https://drive.google.com/file/d/14Ybb2w9U3--1092gn57lXKtR29DMALBX/view?usp=sharing)
+
+- **DD document**: [Overleaf](https://www.overleaf.com/read/dmtcsrzcwxks#a52510)
