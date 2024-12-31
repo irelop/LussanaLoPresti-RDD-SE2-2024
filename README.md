@@ -11,3 +11,4 @@ Requirement Analysis and Specification Document (RASD) and Design Document (DD) 
 
 - **DD document**: [Overleaf](https://www.overleaf.com/read/dmtcsrzcwxks#a52510)
 - DD diagrams: [draw.io](https://drive.google.com/file/d/1MDWHGei__1RnUV0l4QuZcMFEFGh7gHHM/view?usp=sharing)
+- DD User Interface Design: [Figma](https://www.figma.com/design/6wW44RyIjj9ScHnpWFarZY/DD?node-id=0-1&t=FaI1QV11qyoOvgeN-1)
