@@ -7,7 +7,7 @@ After a couple of hours, R receives an email with a username for C, "company\_C\
 \textbf{Student signs up to the platform and adds their personal information}
 \newline
 The Student S wants to sign up to the S\&C platform, so opens the platform and clicks on the "Sign-up" button. The sign up form is displayed, and S must provide the academic email, "sname.ssurname@univeristyu.com", and the university name, "University U". S1 is redirected to U's login page, here S1 can login. S1 returns to the S\&C platform Home Page. Now, the student S wants to upload their own personal CV and competences. So, S navigates to their personal page, clicks on "Upload new CV" and uploads the file with the drag and drop function. Then, to insert experiences, skills and attitudes on their profile, S clicks on 
-"Insert new competence" and fills up the shown form:
+"Add new competence" and fills up the shown form:
 \begin{itemize}
     \item New experience:
     \begin{itemize}
@@ -35,6 +35,7 @@ The Student S wants to sign up to the S\&C platform, so opens the platform and c
     \end{itemize}
 \end{itemize}
 When finished, S clicks on the "Done" button and is redirected on the profile page where the new competences are shown.
+Lastly, S adds a profile picture by clicking on the camera icon and then add a bio by clicking on the pen icon near "Bio".
 \newline\newline
 \textbf{Company creates an advertisement for an internship position along with the corresponding interview form.}\newline
 A representative, R, of a Company C, who is logged in the S\&C platform, wants to create an advertisement for a new internship position available in C. R navigates to the Profile section and clicks on the "Create New Internship Advertisement" button. R is presented with a form where they must provide all relevant details about the internship, so R inserts:
@@ -125,7 +126,7 @@ Student S, who is attending an internship at a Company C1, checks their personal
 \newline\newline
 \textbf{Company writes feedbacks}
 \newline
-A representative, R, of a Company C, who is logged in the S\&C platform, wants to write some feedbacks regarding two Students S1 and S2. S1 did an interview for C that went well. However, C decided to go in another direction. R wants to write a positive feedback for S1, so R navigates to the Monitor Section, selects the internship position S1 was applying for, and press the "Feedback" button next to S1's name. R fills out the form presented:
+A representative, R, of a Company C, who is logged in the S\&C platform, wants to write some feedback regarding two Students S1 and S2. S1 did an interview for C that went well. However, C decided to go in another direction. R wants to write a positive feedback for S1, so R navigates to the Monitor Section, selects the internship position S1 was applying for, and press the "Feedback" button next to S1's name. R fills out the form presented:
 \begin{itemize}
     \item \textbf{Leave an optional comment (it will be displayed on the Student personal page):} "C appreciates your time and preparation for the interview. Although you were not selected, your professionalism and potential stood out. Wishing you success in your future opportunities!"
     \item \textbf{Answer the following questions regarding the student's profile to help make better recommendations} (these answers will only be used by the S\&C system and will not be displayed anywhere):
@@ -184,7 +185,7 @@ The comment will appear on S2's personal page.
 \subsection{Domain Class Diagram}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=15cm]{Images/RASD-Final Domain Class Diagram.png}
+    \includegraphics[width=15cm]{Images/RASD-Domain Class Diagram.drawio.png}
     \caption{UML Domain Class Diagram}
 \end{figure}
 This Domain Class Diagram shows all the classes that will be created to manage the system and the relations between them. Only the relevant methods are present.
@@ -255,7 +256,7 @@ The platform allows users to use a search bar. Students can find internships by 
 \textbf{Recommendation}\newline
 S\&C notifies users about potential matches. Proactive research criteria provided by students are used to recommend suitable internship opportunities. Similarly, the candidate profile specified in an internship advertisement is used to recommend matching students to companies. Recommendations are also based on the feedbacks received by the users. These recommendations are shared with the users and can be accessed via the Inbox section present in their profile. From the recommendation notifications, students can explore the internship advertisement and the company's profile, while companies can view the students' profiles.
 
-\textbf{Matching between company and student and establishment of a cost }\newline
+\textbf{Matching between company and student and establishment of a contact}\newline
 S\&C allows Student to contact Company that find on the platform through the research bar or thanks to the recommendation. S\&C also allows Company to contact Student that they found by the research bar or thanks to the recommendation. The system also will inform the Students and Companies if someone wants to contact them, the user contacted will see a message in the inbox section, and thorough that they will be able to get information about the user who contacted them. When receiving a message, the user can decide to reject the offer or to establish a contact.
 
 \textbf{Selection process}\newline
