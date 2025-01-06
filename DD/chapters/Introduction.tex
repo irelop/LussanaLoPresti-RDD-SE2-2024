@@ -1,0 +1,59 @@
+\section{Purpose}
+The \textbf{S\&C system} is a platform designed to connect university students seeking \textbf{internships} with companies offering internship opportunities. The platform helps students and companies connect and use tools designed for their needs.\newline
+\textbf{Students} are able to log in to the platform via their university credentials. Once they are logged in, they can \textbf{personalise their profile} by uploading their CV and inserting their skills, experiences and attitudes. They can \textbf{search for an internship} by using the search bar, or by waiting for personalised recommendations sent by the system. If they find a suitable internship, they can \textbf{contact} the company. They might also be contacted by a company, so they can accept or decline the offer. If a company accepts a student's application, the Selection Process begins, which involves an interview.\newline
+\textbf{Companies} can publish \textbf{internship advertisements}, look actively for suitable candidates via the search bar or use the recommendations sent by the system. They can, as well, \textbf{contact students}, or they can accept or decline internship requests. They can \textbf{setup an interview} with possible candidates, and create customized forms for use during interviews linked to specific internship advertisements.\newline
+Both students and companies can monitor the interactions regarding internships by the \textbf{Monitoring Section}. They can also provide \textbf{feedback} on their experiences with one another, whether after an interview or during an internship. These comments are published on the user’s profile.\newline
+The \textbf{Recommendation Process} is based on an analysis by the system that considers the criteria used in the search bar by the student, the candidate profile inserted in the internship advertisement, and the feedback provided by both parties.\newline\newline
+The target of this document is the development team. It could also be used as a baseline for implementation activities and for integration and Quality Assurance. It refines the plan and previous estimations done in the RASD document.
+\section{Scope}
+In this document, an in-depth description of the development of the system is done. A combination of three design architectures: Micro-Service, 3-Tier and Client-Server is implemented (to read it more in details see \autoref{subsec: 2.6 Selected architectural styles and patterns})
+\section{Definitions, Acronyms, Abbreviations}
+\subsection{Definitions}
+\textbf{Single Sign-on} is an authentication method that allows users to log into multiple applications and websites using a single set of credentials. In the S\&C system, Students use their university credentials to log in.\newline
+\textbf{Application Programming Interface} is a collection of functions and methods that allow the development of applications to interact with the features or data of an operating system, software, or other services.\newline
+\textbf{RESTful APIs}: specific standardised architectural style for APIs.\newline
+A \textbf{Database Management System (DBMS)} is a software system for creating and managing databases. A DBMS enables end users to create, protect, read, update and delete data in a database. It also manages security, data integrity and concurrency for databases.
+\textbf{Recommendation} is the process performed by the system that recommends to students potential internship positions that they might be interested in and to companies potential candidates.\newline
+The \textbf{Chamber of Commerce Certificate} is an official document provided by the Chamber of Commerce that holds a legal certification value. It confirms the company's registration in the Business Register and includes its name, legal structure, and registration details.\newline
+The \textbf{Revenue Agency} is a public entity that is not focused on profit but is dedicated to ensuring optimal tax compliance. Its primary responsibilities include collecting tax revenues, offering services and support to taxpayers, and conducting assessments and inspections to combat tax evasion.
+\subsection{Acronyms}
+DD: Design Document\newline
+ADV: advertisement\newline
+SSO: Single Sign-on \newline
+API: Application Programming Interface\newline
+REST: Representational State Transfer\newline
+HTTPS: HyperText Transfer Protocol Secure\newline
+TLS: Transport Layer Security \newline
+DBMS: Database Management System
+DB: Database\newline
+DMZ: Demilitarized Zone\newline
+OS: Operative System\newline
+SD: Sequence Diagram\newline
+UI: User Interface\newline
+VAT number: value-added tax identification number (\textit {partita IVA})\newline
+CEO: Chief Executive Officer \newline
+HR: Human Resources\newline
+CV: Curriculum Vitae
+\subsection{Abbreviations}
+R\#: Functional Requirement
+
+\section{Revision history}
+Version 1.0: 07/01/2025
+
+\section{Reference Documents}
+\begin{itemize}
+    \item Specification document: Assignment RDD AY 2024-2025.
+    \item Slides of the course "Software Engineering 2" held at Politecnico di Milano by Professor Rossi (a.y. 2024-25).
+    \item "Fondamenti di Sitemi Informativi per il Settore dell'Informazione" (Cappiello, Fugini, Grefen, Pernici, Plebani, Vitali): book of the course "Sistemi Informativi" held at Politecnico di Milano by Professor Fugini (a.y. 2022-23), used to implement the Depoyment View.
+    \item Abbreviations section are taken from researches done on the Internet.
+\end{itemize}
+\section{Document Structure}
+\begin{enumerate}
+    \item Introduction: analysis of the domain and product, summary of key architectural styles and decisions, and an overview of the contents and structure of this DD.
+    \item Architectural Design: general overview of the architecture,  detailed explanation of the main interfaces, component diagrams, deployment diagrams, and dynamic of interaction (sequence diagrams).
+    \item User Interface Design: overview of user interfaces accompanied by mock-ups.
+    \item Requirements Traceability: mapping between requirements and design elements.
+    \item Implementation, Integration and Test Plan: sequence of subsystem and components implementation, along with the integration and test plan.
+    \item Effort Spent: information on the time spent drafting the document divided per group members.
+    \item References: this section lists the documents used to draft the project.
+\end{enumerate}
