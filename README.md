@@ -5,7 +5,7 @@ Requirement Analysis and Specification Document (RASD) and Design Document (DD) 
 - #### Irene Lo Presti [@irelop](https://github.com/irelop)
 - #### Matteo Lussana [@matteo-lussana](https://github.com/matteo-lussana)
 
-## Assignement
+## Assignment
 Students\&Companies (S\&C) is a platform that helps match university students looking for internships and companies offering them. The platform should ease the matching between students and companies based on:
 - the experiences, skills and attitudes of students, as listed in their CVs;
 - the projects (application domain, tasks to be performed, relevant adopted technologies-if anyetc.) and terms offered by companies (for example, some company might offer paid internships and/or provide both tangible and intangible benefits, such as training, mentorships, etc.).
